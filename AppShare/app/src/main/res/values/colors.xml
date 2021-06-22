@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<item name="primary" type="color">#0088FF</item>
+	<item name="dark" type="color">#0099FF</item>
+	<item name="accent" type="color">#0099FF</item>
+	<item name="actionText" type="color">#FFFFFF</item>
+	<item name="menuText" type="color">#0099FF</item>
+</resources>
