@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+ <PreferenceCategory
+  android:title="Appearance">
+		 
+  <ListPreference
+   android:title="Drawer style"
+   android:key="drawerStyle"
+   android:summary="The style of the applications drawer, list or grid."
+   android:defaultValue="0"
+   android:entries="@array/drawerStyleList"
+   android:entryValues="@array/drawerStyleValues" />
+		 
+  <EditTextPreference
+   android:key="drawerColumns"
+   android:title="Grid columns"
+   android:summary="Specify the number of columns.\nAvailable only when drawer style is set to grid."
+   android:enabled="false"
+   android:dialogTitle="Number of columns (3 - 8)"
+   android:numeric="integer"
+  />
+	 
+  <CheckBoxPreference
+   android:title="Show application labels"
+   android:defaultValue="true"
+   android:enabled="false"
+   android:summary="Show applications labels.\nAvailable only when drawer style is set to grid."
+   android:key="showLabels" />
+ </PreferenceCategory>
+	
+ <PreferenceCategory
+  android:title="Performance">
+  
+  <CheckBoxPreference
+   android:title="Speed up"
+   android:defaultValue="false"
+   android:enabled="true"
+   android:summary="Enable experimental speed up feature."
+   android:key="beta" />
+
+  <Preference
+   android:title="Rebuild cache"
+   android:summary="Use only when the application list is not functioning properly."
+   android:key="rebuildCache"
+  />
+  
+ </PreferenceCategory>
+ 
+ <PreferenceCategory
+  android:title="About">
+
+  <Preference
+   android:title="Check for update..."
+   android:summary="Check for application update.\nRequires an active Internet connection."
+   android:key="checkUpdate" />
+
+  <Preference
+   android:title="Unlock all feautures"
+   android:summary="Buy the full version of the application.\nRequires an active Internet connection."
+   android:key="buyPremium" />
+
+  <Preference
+   android:title="More applications..."
+   android:summary="See more applications made by me.\nRequires an active Internet connection."
+   android:key="moreApps" />
+
+  <Preference
+   android:title="About"
+   android:summary="Info about the application's author."
+   android:key="about" />
+
+ </PreferenceCategory>
+ 
+</PreferenceScreen>
