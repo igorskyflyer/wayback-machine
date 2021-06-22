@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_height="wrap_content"
+	android:id="@+id/dialogSort"
+	android:padding="12dp"
+	android:layout_width="wrap_content"
+	android:gravity="center_horizontal"
+	android:background="@drawable/dialog_sort">
+
+	<ImageView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:src="@android:drawable/ic_delete"
+		android:layout_alignParentEnd="true"
+		android:id="@+id/dialogSortBtnClose"
+		android:layout_marginBottom="16dp"/>
+
+	<RelativeLayout
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:id="@+id/dialogSortLayoutSort"
+		android:layout_below="@id/dialogSortBtnClose">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_width="wrap_content"
+			android:text="Sort by"
+			android:id="@+id/dialogSortTxtSort"
+			android:layout_marginStart="4dp"/>
+
+		<RadioGroup
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_below="@id/dialogSortTxtSort"
+			android:id="@+id/dialogSortGroupSort"
+			android:layout_marginBottom="16dp">
+
+			<RadioButton
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:layout_below="@id/dialogSortTxtSort"
+				android:text="name"
+				android:checked="true"
+				android:id="@+id/dialogSortRadioName"/>
+
+			<RadioButton
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:layout_below="@id/dialogSortRadioName"
+				android:text="install date"
+				android:id="@+id/dialogSortRadioDate"/>
+
+			<RadioButton
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:layout_below="@id/dialogSortRadioDate"
+				android:text="size"
+				android:id="@+id/dialogSortRadioSize"/>
+
+		</RadioGroup>
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_weight="1"
+		android:layout_below="@id/dialogSortBtnClose"
+		android:layout_toEndOf="@id/dialogSortLayoutSort"
+		android:layout_marginStart="24dp"
+		android:gravity="center"
+		android:id="@+id/dialogSortLayoutOrder">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_width="wrap_content"
+			android:text="Order"
+			android:id="@+id/dialogSortTextOrder"
+			android:layout_marginStart="4dp"/>
+
+		<RadioGroup
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_below="@id/dialogSortTextOrder"
+			android:id="@+id/dialogSortGroupOrder"
+			android:measureWithLargestChild="true">
+
+			<RadioButton
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="ascending"
+				android:checked="true"
+				android:id="@+id/dialogSortRadioAsc"/>
+
+			<RadioButton
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:layout_below="@id/dialogSortRadioAsc"
+				android:text="descending"
+				android:id="@+id/dialogSortRadioDesc"
+				android:gravity="center_vertical"/>
+
+		</RadioGroup>
+
+	</RelativeLayout>
+
+	<Button
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:text="Ok"
+		android:layout_below="@id/dialogSortLayoutSort"
+		android:layout_marginTop="14dp"
+		android:textColor="#FFFFFF"
+		android:id="@+id/dialogSortBtnOk"
+		android:layout_centerHorizontal="true"
+		android:background="@drawable/dialog_btn"/>
+
+</RelativeLayout>
+
