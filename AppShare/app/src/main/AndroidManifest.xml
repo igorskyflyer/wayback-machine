@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.neovisio.appshare">
+	
+	<uses-sdk android:minSdkVersion="15" />
+	
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+		
+		<receiver android:name=".AppsRefresher"
+				  android:exported="false">	 
+			<intent-filter>
+				<action android:name="android.intent.action.PACKAGE_ADDED" />
+				<action android:name="android.intent.action.PACKAGE_REMOVED" />
+			</intent-filter>
+		</receiver>
+		
+		<activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+			android:launchMode="singleTask"
+			android:configChanges="orientation|screenSize">
+			<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		
+		<activity
+			android:name=".Intro"
+			android:label=""
+			android:launchMode="singleTask"
+			android:configChanges="orientation|screenSize">
+		</activity>
+		
+		<activity
+			android:name=".Search"
+			android:label="@string/app_name"
+			android:launchMode="singleTask"
+			android:configChanges="orientation|screenSize">
+		</activity>
+		
+		<activity
+			android:name=".Settings"
+			android:label="Settings"
+			android:launchMode="singleTask"
+			android:theme="@style/Settings"
+			android:configChanges="orientation|screenSize">
+		</activity>
+		
+    </application>
+
+</manifest>
