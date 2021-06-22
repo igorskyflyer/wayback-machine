@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >  
+  <group android:id="@+id/popup_share">
+	<item  
+        android:id="@+id/popup_share_wifi" 
+        android:title="Share via Wi-Fi..."/>  
+	
+    <item  
+        android:id="@+id/popup_share_bt"  
+        android:title="Share via Bluetooth..."/>  
+  </group>
+  
+  <item
+	  android:id="@+id/popup_save"
+	  android:title="Save to device" />
+  
+  <group android="@+id/popup_info">
+    <item  
+        android:id="@+id/popup_info"  
+        android:title="Application info"/>  
+	
+	  <item  
+		  android:id="@+id/popup_send_store"  
+		  android:title="Send Play Store link..."/>  
+	  
+	  <item  
+		  android:id="@+id/popup_store"  
+		  android:title="Open on Play Store"/>  
+	
+  </group>
+</menu>  
