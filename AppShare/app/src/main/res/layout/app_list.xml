@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:textAlignment="center"
+	android:gravity="center_vertical"
+	android:clickable="true"
+	android:id="@+id/app"
+	android:padding="10dp">
+
+	<ImageView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:src="@mipmap/ic_launcher"
+		android:id="@+id/appIcon"
+		android:layout_marginBottom="12dp"
+		android:adjustViewBounds="true"
+		android:layout_centerVertical="true"/>
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="match_parent"
+		android:text="Small Text"
+		android:id="@+id/appLabel"
+		android:layout_toRightOf="@id/appIcon"
+		android:layout_centerVertical="true"/>
+
+	<CheckBox
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_above="@id/appLabel"
+		android:layout_alignParentEnd="true"
+		android:id="@+id/appSelect"
+		android:visibility="invisible"/>
+
+</RelativeLayout>
+
