@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html lang="sr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HTML5 Canvas &ndash; Slike</title>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/highlight.css" rel="stylesheet" type="text/css" />
+<script src="js/main.js"></script>
+<script src="js/highlight.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+ $(setupPage);
+</script>
+</head>
+<body>
+<div id="logo" onclick="goHome();">
+ <img src="img/bucket-left.png" alt="" /><span id="title">HTML5 Canvas</span><img src="img/bucket-right.png" alt="" />
+</div>
+<br />
+<ul id="nav">
+ <li><a href="index.html?id=0">Uvod</a></li>
+ <li><a href="funkcije.html?id=1">Funkcije</a>
+ <li><a href="linije.html?id=2">Linije</a></li>
+ <li class="current"><a href="slike.html?id=3">Slike</a></li>
+ <li><a href="rotacija.html?id=4">Rotacija</a>
+ <li><a href="stilovi.html?id=5">Stilovi</a></li>
+ <li><a href="primeri.html?id=6">Primeri</a></li>
+ <li><a href="igre.html?id=7">Igre</a></li>
+ <li><a href="autori.html?id=8">Autori</a></li>
+ </ul>
+<div id="wrapper">
+<div id="content">
+ <br />
+ <img src="img/canvas.png" alt="Canvas - HTML5" id="main-image" />
+ <br />
+  <div id="fixed">
+   <img src="img/fb.png" alt="" onclick="shareTo(0);" />
+   <img src="img/twitter.png" alt="" onclick="shareTo(1);" />
+   <img src="img/google.png" alt="" onclick="shareTo(2);" />
+   <img src="img/pintrest.png" alt="" onclick="shareTo(3);" />
+  </div>
+  <br />
+ <p>U prostor u kome smo crtali pomoću CANVAS-a možemo uvoziti i gotove slike, koje mogu biti kao pozadina našim crtežima, ili pak da pravimo neke dinamičke animacije, itd. Možemo ubacivati bilo koje tipove slika, na primer .jpg, .gif, .png itd.
+ <br />
+ Ubacivanje slika se vrši u osnovi u dva koraka:
+ <br />
+ <ul>
+  <li>Pravimo referencu na objekat JavaScript slike ili druge CANVAS elemente kao izvor. Nije moguće jednostavno ubacivanjem URL adrese slika.</li>
+  <li>Zatim “crtamo” sliku na platno pomoću drawImage funkcije.</li>
+ </ul>
+ <br />
+ <strong>drawImage(image, x, y)</strong> – kao što smo već napisali ovom funkcijom ubacujemo sliku, stim što su X i Y kordinate koje definišu položaj slike i to tako da definišu gornju levu tačku slike. Zapravo <strong>drawImage()</strong> funkcija ima još dve varijante ali ovo je prva.
+<br />
+Evo primera:
+</p>
+ <pre>
+  <code data-language="javascript">
+   function crtaj() {
+    var ctx = document.getElementById(&quot;kocke&quot;).getContext(&quot;2d&quot;);
+    var img = new Image();
+    img.onload = function(){
+     ctx.drawImage(img,0,0);
+    }
+    img.src = &quot;img/cherry.png&quot;;
+   }
+  </code>
+ </pre>
+  <div class="live">
+   <img src="img/cherry.png" alt="" />
+   <p>Renderovani prikaz koda</p>
+  </div>
+ <br />
+ <p>Međutim ne moramo definisati sliku u samoj funkciji img.src=”….”. Ako već u dokumentu postoji slika koju želimo da iskoristimo možemo je pozvati i ovako:</p>
+<pre>
+ <code data-language="javascript">
+  function crtaj() {
+var ctx = document.getElementById(&quot;kocke&quot;).getContext(&quot;2d&quot;);
+ctx.drawImage(document.getElementById(&quot;img1&quot;),0,0);
+}
+ </code>
+</pre>
+<p>
+ Druga varijanta funkcije nam dodaje još dva nova parametra koja omogućavaju skaliranje slike, to jest podešavanje veličine slike koja nama odgovara. Funkcija izgleda:
+ <br />
+ <strong>drawImage(image, x, y, width, height)</strong>
+ <br />
+Gde su <strong>width</strong> širina slike koju mi želimo, i <strong>height</strong> visina koja nama odgovara, a sve u pikselima naravno. Mislim da je ovo jasno i da ne treba neki poseban primer, jer je sve ostalo isto kao i prethodni primer.
+ <br />
+Treća varijanta <strong>drawImage</strong> funkcije je mogućnost sečenja slike. Naime, nekad je neophodno koristiti samo neki deo slike. Funkcija izgleda sad ovako:
+ <br />
+<strong>drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)</strong>
+ <br />
+<strong>sx, sy, sWidth i sHeight</strong> je pravougaonik isečka slike. Znači sx i sy su kordinate tačke u slici, a koordinatni početak u slici je sam gornji levi ugao slike. dx, dy, dWith i dHeight su u stvari oni naši poznati parametri kao iz gornje dve varijante drawImage funkcije. Ovako napisano moguće da je nejasno ali daću sliku koja objašnjava:
+</p>
+ <div class="live">
+  <img src="img/draw-image.jpg" alt="" />
+ </div>
+ </div>
+ <div id="sidebar">
+  <p id="clock-caption">Vreme</p>
+  <p id="clock">&nbsp;</p>
+  <p>Korisni linkovi</p>
+  <ul id="side-menu">
+   <li><a href="http://ftn.kg.ac.rs/" target="_blank">&#9654; Fakultet tehničkih nauka</a></li>
+   <li><a href="http://itlab.ftn.kg.ac.rs/moodle/" target="_blank">&#9654; Moodle</a></li>
+   <li><a href="http://www.effectgames.com/demos/canvascycle/" target="_blank">&#9654; Waterfall</a></li>
+   <li><a href="https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio/launch" target="_blank">&#9654; Ghostwriter</a></li>
+   <li><a href="http://www.html5canvastutorials.com" target="_blank">&#9654; Canvas Tutorials</a></li>
+   <li><a href="http://www.w3schools.com/html/html5_canvas.asp" target="_blank">&#9654; W3Schools</a></li>
+   <li><a href="http://diveintohtml5.info/canvas.html" target="_blank">&#9654; Canvas Tutorial</a></li>
+  </ul>
+ </div>
+ </div>
+ <div id="footer">
+  <p>Čačak, 2015</p>
+ </div>
+</body>
+</html>

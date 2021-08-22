@@ -1,0 +1,192 @@
+﻿<!doctype html>
+<html lang="sr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HTML5 Canvas &ndash; Funkcije</title>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/highlight.css" rel="stylesheet" type="text/css" />
+<script src="js/main.js"></script>
+<script src="js/highlight.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+ $(setupPage);
+</script>
+</head>
+<body>
+<div id="logo" onclick="goHome();">
+ <img src="img/bucket-left.png" alt="" /><span id="title">HTML5 Canvas</span><img src="img/bucket-right.png" alt="" />
+</div>
+<br />
+<ul id="nav">
+ <li><a href="index.html?id=0">Uvod</a></li>
+ <li class="current"><a href="funkcije.html?id=1">Funkcije</a>
+ <li><a href="linije.html?id=2">Linije</a></li>
+ <li><a href="slike.html?id=3">Slike</a></li>
+ <li><a href="rotacija.html?id=4">Rotacija</a>
+ <li><a href="stilovi.html?id=5">Stilovi</a></li>
+ <li><a href="primeri.html?id=6">Primeri</a></li>
+ <li><a href="igre.html?id=7">Igre</a></li>
+ <li><a href="autori.html?id=8">Autori</a></li>
+ </ul>
+<div id="wrapper">
+<div id="content">
+ <br />
+ <img src="img/canvas.png" alt="Canvas - HTML5" id="main-image" />
+ <br />
+  <div id="fixed">
+   <img src="img/fb.png" alt="" onclick="shareTo(0);" />
+   <img src="img/twitter.png" alt="" onclick="shareTo(1);" />
+   <img src="img/google.png" alt="" onclick="shareTo(2);" />
+   <img src="img/pintrest.png" alt="" onclick="shareTo(3);" />
+  </div>
+  <br />
+  <p>Svaki složeniji crtež mora da sadrži sledeće funkcije:
+  <ul>
+  <li><strong>beginPath()</strong>,</li>
+  <li><strong>closePath()</strong>,</li>
+  <li><strong>stroke()</strong>,</li>
+  <li><strong>fill()</strong>.</li>
+  </ul>
+  <br />
+  Kao što znamo složeniji crteži se sastoje od raznih geometrijskih oblika, kao što su linije, pravougaonici, krugovi, itd.
+  <br />
+  <strong>BeginPath()</strong> je zapravo kontejner koji sadrži definicije svih geometrijskih oblika koji skupa definišu jedan crtež.
+  <br />
+  <strong>ClosePath()</strong> zatvara formu crteža. Nije uvek potrebno koristiti closePath ali da mnogo ne komplikujemo bolje je uvek koristiti.
+  <br />
+  <strong>Stroke()</strong> je funkcija koja se koristi za crtanje kontura, a fill( ) za crtanje ispunjenih površina. Evo jednog crteža trougla koji demonstrira upotrebu beginPath:
+</p>
+ <pre>
+  <code data-language="javascript">
+ function crtaj() {
+  canvas = document.getElementById(&quot;kocke&quot;);
+  if (canvas.getContext) {
+   ctx = canvas.getContext(&quot;2d&quot;);
+   ctx.beginPath();
+   ctx.moveTo(75,50);
+   ctx.lineTo(100,75);
+   ctx.lineTo(100,25);
+   ctx.fill();
+  }
+ }
+  </code>
+ </pre>
+  <div class="live">
+   <img src="img/fill.png" alt="" />
+   <p>Renderovani prikaz koda</p>
+  </div>
+ <br />
+ <p><strong>moveTo()</strong> je vrlo korisna funkcija, koja zapravo ne definiše nikakv geometrijski oblik, ali može da pomera sve moguće oblike. Princip rada je takav, da na primer imate olovku na stolu, i sad je vi uzmete i pomerite je sa jednog mesta na drugo. Znači, kad definišemo neki oblik pmoću <strong>beginPath()</strong> funkcijom i kad se pozove ta funkcija onda se crtež crta u koordinati (0, 0). Medjutim mi možemo pomoću <strong>moveTo()</strong> funkcijom da pomeramo taj crtež u koju god želimo koordinatu unutar našeg platna za crtanje. To je jedan korisan način upotrebe ali mi možemo pomerati ne samo ceo crtež, već i pojedine geometrijske oblike unutar same defincije nekog crteža. Evo primera:</p>
+ <pre>
+  <code data-language="javascript">
+  function crtaj() {
+   canvas = document.getElementById("kocke");
+   if (canvas.getContext) {
+   ctx = canvas.getContext("2d");
+   ctx.beginPath();
+   ctx.arc(75,75,50,0,Math.PI*2,true); // definisanje spoljnog celog kruga
+   ctx.moveTo(110,75);
+   ctx.arc(75,75,35,0,Math.PI,false); // definisanje usta
+   ctx.moveTo(65,65);
+   ctx.arc(60,65,5,0,Math.PI*2,true); // levo oko
+   ctx.moveTo(95,65);
+   ctx.arc(90,65,5,0,Math.PI*2,true); // desno oko
+   ctx.stroke();
+   }
+  }
+  </code>
+ </pre>
+  <div class="live">
+   <img src="img/smiley.png" alt="" />
+   <p>Renderovani prikaz koda</p>
+  </div>
+ <br />
+ <p><strong>lineTo(x, y)</strong> – Funkcija za crtanje linije. Kao što znamo, da bi smo nacrtali liniju potrebno je definisati dve tačke. Funkcija <strong>lineTo()</strong> definiše jednu tačku a druga tačka je koordinatni početak. E sad ako želimo liniju koja ne prolazi kroz koordinatni početak onda koristimo funkciju <strong>moveTo()</strong> za izmeštanje koordinatnog početka. Evo primer korišćenja linija u crtanju dva trougla od kojih je jedan isunjen a drugi samo kontura:</p>
+ <pre>
+  <code data-language="javascript">
+  function crtaj() {
+   canvas = document.getElementById("kocke");
+   if (canvas.getContext) {
+   ctx = canvas.getContext("2d");
+   // Ispunjen trougao
+   ctx.beginPath();
+   ctx.moveTo(25,25);
+   ctx.lineTo(105,25);
+   ctx.lineTo(25,105);
+   ctx.fill();
+   // Kontura trougao
+   ctx.beginPath();
+   ctx.moveTo(125,125);
+   ctx.lineTo(125,45);
+   ctx.lineTo(45,125);
+   ctx.closePath();
+   ctx.stroke();
+ }
+}
+  </code>
+ </pre>
+   <div class="live">
+   <img src="img/triangles.png" alt="" />
+   <p>Renderovani prikaz koda</p>
+  </div>
+ <br />
+ <p><strong>arc(x,  y,  poluprečnik,  početakKruga,  krajKruga,  smer)</strong> – funkcija za crtanje krugova i isečaka krugova (lukova). X i Y su koordinate tačke centra kruga. Smer crtanja luka je suprotan od smera kretanja na satu ako je true, a ako je false onda je u smeru kretanja kazaljke na satu. PočetakKruga i KrajKruga su parametri koji definišu početak i kraj luka kruga a mere se u radijanima. Da biste pretvorili uglove u stepenima u uglove u radijanima koristite sledeći JavaScript izraz:</p>
+ <pre>
+  <code data-language="javascript">
+    radijani = (Math.PI/180) * stepeni;
+  </code>
+ </pre>
+ <p>Evo primera za više slučajeva krugova:</p>
+  <pre>
+  <code data-language="javascript">
+   function crtaj() {
+    canvas = document.getElementById("kocke");
+    if (canvas.getContext) {
+    ctx = canvas.getContext("2d");
+    for(var i=0; i<4; i++){
+    for(var j=0; j<3; j++){
+    ctx.beginPath();
+    x = 25 + j*50; // x coordinate
+    y = 25 + i*50; // y coordinate
+    radius = 20; // Arc radius
+    startAngle = 0; // Starting point on circle
+    endAngle = Math.PI+(Math.PI*j)/2; // End point on circle
+    anticlockwise = i%2==0 ? false : true; // clockwise or anticlockwise
+    ctx.arc(x,y,radius,startAngle,endAngle, anticlockwise);
+    if (i<1){
+     ctx.fill(); }
+    else {
+     ctx.stroke();
+    }
+   }
+  }
+ }
+}
+  </code>
+ </pre>
+ <div class="live">
+   <img src="img/circles.png" alt="" />
+   <p>Renderovani prikaz koda</p>
+  </div>
+ </div>
+ <div id="sidebar">
+  <p id="clock-caption">Vreme</p>
+  <p id="clock">&nbsp;</p>
+  <p>Korisni linkovi</p>
+  <ul id="side-menu">
+   <li><a href="http://ftn.kg.ac.rs/" target="_blank">&#9654; Fakultet tehničkih nauka</a></li>
+   <li><a href="http://itlab.ftn.kg.ac.rs/moodle/" target="_blank">&#9654; Moodle</a></li>
+   <li><a href="http://www.effectgames.com/demos/canvascycle/" target="_blank">&#9654; Waterfall</a></li>
+   <li><a href="https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio/launch" target="_blank">&#9654; Ghostwriter</a></li>
+   <li><a href="http://www.html5canvastutorials.com" target="_blank">&#9654; Canvas Tutorials</a></li>
+   <li><a href="http://www.w3schools.com/html/html5_canvas.asp" target="_blank">&#9654; W3Schools</a></li>
+   <li><a href="http://diveintohtml5.info/canvas.html" target="_blank">&#9654; Canvas Tutorial</a></li>
+  </ul>
+ </div>
+ </div>
+ <div id="footer">
+  <p>Čačak, 2015</p>
+ </div>
+</body>
+</html>

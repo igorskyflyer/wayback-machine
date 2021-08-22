@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html lang="sr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HTML5 Canvas &ndash; Rotacija</title>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/highlight.css" rel="stylesheet" type="text/css" />
+<script src="js/main.js"></script>
+<script src="js/highlight.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+ $(setupPage);
+</script>
+</head>
+<body>
+<div id="logo" onclick="goHome();">
+ <img src="img/bucket-left.png" alt="" /><span id="title">HTML5 Canvas</span><img src="img/bucket-right.png" alt="" />
+</div>
+<br />
+<ul id="nav">
+ <li><a href="index.html?id=0">Uvod</a></li>
+ <li><a href="funkcije.html?id=1">Funkcije</a>
+ <li><a href="linije.html?id=2">Linije</a></li>
+ <li><a href="slike.html?id=3">Slike</a></li>
+ <li class="current"><a href="rotacija.html?id=4">Rotacija</a>
+ <li><a href="stilovi.html?id=5">Stilovi</a></li>
+ <li><a href="primeri.html?id=6">Primeri</a></li>
+ <li><a href="igre.html?id=7">Igre</a></li>
+ <li><a href="autori.html?id=8">Autori</a></li>
+ </ul>
+<div id="wrapper">
+<div id="content">
+ <br />
+ <img src="img/canvas.png" alt="Canvas - HTML5" id="main-image" />
+ <br />
+  <div id="fixed">
+   <img src="img/fb.png" alt="" onclick="shareTo(0);" />
+   <img src="img/twitter.png" alt="" onclick="shareTo(1);" />
+   <img src="img/google.png" alt="" onclick="shareTo(2);" />
+   <img src="img/pintrest.png" alt="" onclick="shareTo(3);" />
+  </div>
+  <br />
+  <p>Jedna od metoda transformacija je rotacija. Ona se koristi kada postoji potreba da se neki crtež zarotira za neki ugao. </p>
+ <pre>
+  <code data-language="javascript">
+   function crtaj() {
+    canvas = document.getElementById("kocke");
+    if (canvas.getContext) {
+     ctx = canvas.getContext("2d");
+     ctx.translate(75,75);
+     for (i = 1; i &lt; 6;i ++){ // crta prstenove (iznutra ka van)
+      ctx.save();
+      ctx.fillStyle="rgb("+(0*i)+", "+(255-51*i)+", 255)";
+      for (j=0; j&lt;i*6; j++){ // crta pojedinačne kružiće
+       ctx.rotate(Math.PI*2/(i*6));
+       ctx.beginPath();
+       ctx.arc(0,i*12.5,5,0,Math.PI*2,true);
+       ctx.fill();
+      }
+    ctx.restore();
+   }
+  }
+ }
+  </code>
+ </pre>
+  <div class="live">
+   <img src="img/rotation.png" alt="" />
+   <p>Renderovani prikaz koda</p>
+  </div>
+ </div>
+ <div id="sidebar">
+  <p id="clock-caption">Vreme</p>
+  <p id="clock">&nbsp;</p>
+  <p>Korisni linkovi</p>
+  <ul id="side-menu">
+   <li><a href="http://ftn.kg.ac.rs/" target="_blank">&#9654; Fakultet tehničkih nauka</a></li>
+   <li><a href="http://itlab.ftn.kg.ac.rs/moodle/" target="_blank">&#9654; Moodle</a></li>
+   <li><a href="http://www.effectgames.com/demos/canvascycle/" target="_blank">&#9654; Waterfall</a></li>
+   <li><a href="https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio/launch" target="_blank">&#9654; Ghostwriter</a></li>
+   <li><a href="http://www.html5canvastutorials.com" target="_blank">&#9654; Canvas Tutorials</a></li>
+   <li><a href="http://www.w3schools.com/html/html5_canvas.asp" target="_blank">&#9654; W3Schools</a></li>
+   <li><a href="http://diveintohtml5.info/canvas.html" target="_blank">&#9654; Canvas Tutorial</a></li>
+  </ul>
+ </div>
+ </div>
+ <div id="footer">
+  <p>Čačak, 2015</p>
+ </div>
+</body>
+</html>

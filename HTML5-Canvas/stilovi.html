@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<html lang="sr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HTML5 Canvas &ndash; Stilovi</title>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/highlight.css" rel="stylesheet" type="text/css" />
+<script src="js/main.js"></script>
+<script src="js/highlight.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+ $(setupPage);
+</script>
+</head>
+<body>
+<div id="logo" onclick="goHome();">
+ <img src="img/bucket-left.png" alt="" /><span id="title">HTML5 Canvas</span><img src="img/bucket-right.png" alt="" />
+</div>
+<br />
+<ul id="nav">
+ <li><a href="index.html?id=0">Uvod</a></li>
+ <li><a href="funkcije.html?id=1">Funkcije</a>
+ <li><a href="linije.html?id=2">Linije</a></li>
+ <li><a href="slike.html?id=3">Slike</a></li>
+ <li><a href="rotacija.html?id=4">Rotacija</a>
+ <li class="current"><a href="stilovi.html?id=5">Stilovi</a></li>
+ <li><a href="primeri.html?id=6">Primeri</a></li>
+ <li><a href="igre.html?id=7">Igre</a></li>
+ <li><a href="autori.html?id=8">Autori</a></li>
+ </ul>
+<div id="wrapper">
+<div id="content">
+ <br />
+ <img src="img/canvas.png" alt="Canvas - HTML5" id="main-image" />
+ <br />
+  <div id="fixed">
+   <img src="img/fb.png" alt="" onclick="shareTo(0);" />
+   <img src="img/twitter.png" alt="" onclick="shareTo(1);" />
+   <img src="img/google.png" alt="" onclick="shareTo(2);" />
+   <img src="img/pintrest.png" alt="" onclick="shareTo(3);" />
+  </div>
+  <br />
+  <p>Do sada smo linije crteža, kao i ispune crtali samo bojom koja je po defaultu, a to je crna boja. Ovde će mo videti kako se koriste i sve ostale moguće boje. Postoje dve funkcije za boje a to su:
+<br />
+<ul>
+<li><p>fillStyle = color – definiše boju ispune</p></li>
+<li><p>strokeStyle = color – definiše boju kontura</p></li>
+</ul>
+Color je definicija boje a ona može da se definiše na više načina:</p>
+ <pre>
+  <code data-language="javascript">
+   ctx.fillStyle = "orange";
+   ctx.fillStyle = "#FFA500";
+   ctx.fillStyle = "rgb(255,165,0)";
+   ctx.fillStyle = "rgba(255,165,0,1)";
+  </code>
+ </pre>
+  <div class="live">
+   <img src="img/fill-gradient.png" alt="" />
+   <p>Renderovani prikaz koda</p>
+  </div>
+ <p>
+ Svi ovi načini su nam poznati, sem zadnjeg rgba pa da ga objasnimo. Zapravo je zadnji parametar nepoznanica a ostala tri su definicije boja kao kod rgb. Zadnji parametar definiše nivo transparentnosti boje, odnosno nivo providnosti. Ako se stavi broj 1 onda nije providna boja a što se broj više smanjuje do 0 sve je transparentniji. Tako na primer 0.5 je upola providan.
+<br />
+Ako postavite strokeStyle i / ili fillStyle na kraju onda tako definišete boju za sve linije i površine. Ako neki oblik želite u drugoj boji, onda se fillStyle ili strokeStyle definiše odma u narednom redu u odnosu na red u koji ste definisali oblik. Evo nekoliko primera:
+ </p>
+ <pre>
+  <code data-language="javascript">
+   function crtaj() {
+   canvas = document.getElementById("kocke");
+   if (canvas.getContext) {
+   ctx = canvas.getContext("2d");
+   for (i=0; i<6; i++){
+    for (j=0; j<6; j++){
+     ctx.strokeStyle="rgb(0,"  +  Math.floor(255-42.5*i)  +  ","  +  Math.floor(255-42.5*j) + ")";
+     ctx.beginPath();
+     ctx.arc(12.5+j*25,12.5+i*25,10,0,Math.PI*2,true);
+     ctx.stroke();
+   }
+  }
+ }
+}
+  </code>
+ </pre>
+   <div class="live">
+   <img src="img/fill-circles.png" alt="" />
+   <p>Renderovani prikaz koda</p>
+  </div>
+ </div>
+ <div id="sidebar">
+  <p id="clock-caption">Vreme</p>
+  <p id="clock">&nbsp;</p>
+  <p>Korisni linkovi</p>
+  <ul id="side-menu">
+   <li><a href="http://ftn.kg.ac.rs/" target="_blank">&#9654; Fakultet tehničkih nauka</a></li>
+   <li><a href="http://itlab.ftn.kg.ac.rs/moodle/" target="_blank">&#9654; Moodle</a></li>
+   <li><a href="http://www.effectgames.com/demos/canvascycle/" target="_blank">&#9654; Waterfall</a></li>
+   <li><a href="https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio/launch" target="_blank">&#9654; Ghostwriter</a></li>
+   <li><a href="http://www.html5canvastutorials.com" target="_blank">&#9654; Canvas Tutorials</a></li>
+   <li><a href="http://www.w3schools.com/html/html5_canvas.asp" target="_blank">&#9654; W3Schools</a></li>
+   <li><a href="http://diveintohtml5.info/canvas.html" target="_blank">&#9654; Canvas Tutorial</a></li>
+  </ul>
+ </div>
+ </div>
+ <div id="footer">
+  <p>Čačak, 2015</p>
+ </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+﻿<!doctype html>
+<html lang="sr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HTML5 Canvas &ndash; Linije</title>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/highlight.css" rel="stylesheet" type="text/css" />
+<script src="js/main.js"></script>
+<script src="js/highlight.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+ $(setupPage);
+</script>
+</head>
+<body>
+<div id="logo" onclick="goHome();">
+ <img src="img/bucket-left.png" alt="" /><span id="title">HTML5 Canvas</span><img src="img/bucket-right.png" alt="" />
+</div>
+<br />
+<ul id="nav">
+ <li><a href="index.html?id=0">Uvod</a></li>
+ <li><a href="funkcije.html?id=1">Funkcije</a>
+ <li class="current"><a href="linije.html?id=2">Linije</a></li>
+ <li><a href="slike.html?id=3">Slike</a></li>
+ <li><a href="rotacija.html?id=4">Rotacija</a>
+ <li><a href="stilovi.html?id=5">Stilovi</a></li>
+ <li><a href="primeri.html?id=6">Primeri</a></li>
+ <li><a href="igre.html?id=7">Igre</a></li>
+ <li><a href="autori.html?id=8">Autori</a></li>
+ </ul>
+<div id="wrapper">
+<div id="content">
+ <br />
+ <img src="img/canvas.png" alt="Canvas - HTML5" id="main-image" />
+ <br />
+  <div id="fixed">
+   <img src="img/fb.png" alt="" onclick="shareTo(0);" />
+   <img src="img/twitter.png" alt="" onclick="shareTo(1);" />
+   <img src="img/google.png" alt="" onclick="shareTo(2);" />
+   <img src="img/pintrest.png" alt="" onclick="shareTo(3);" />
+  </div>
+  <br />
+  <p>
+   U ovom delu potrebno je samo da unesete html5 canvas element. Podesićemo njegovu širinu i dužinu na 500 px i id na tutorijal. U body tagove upišite:
+  <br />
+  <br />
+  <strong>Korak 1</strong>
+  <br />
+  <pre>
+   <code data-language="javascript">
+    &lt;canvas id="tutorijal" width="500" height="500"&gt;
+     Vas pretrazivac ne podrzava canvas html5 element
+    &lt;/canvas&gt;
+   </code>
+  </pre>
+  <br />
+  <strong>Korak 2 – css definisanje stilova</strong>
+  <br />
+  Zatim ćemo definisati vidljive granice pomoću css stila border. U head tagove upišite style tagove i unesite sledeći kod:
+ <pre>
+  <code data-language="css">
+   canvas {
+    border: 2px solid #c3c3c3;
+   }
+  </code>
+ </pre>
+ <br />
+ <strong>Korak 3 – JavaScript crtanje</strong>
+ <br />
+ Kroz JavaScript ćemo definisati mnoge delove elementa canvas. U prvoj liniji koda preuzimamo elelment u promenljivu kako bi lakše radili sa elementom. Zatim definišemo da canvas elemet se prikazuje u dve dimenzije. U body tagove upišite script tagove u kojima unesite sledeći kod:
+ <br />
+ Funkcija moveTo podešava početnu tačku za crtanje i ima parametre x i y ose. Funkcija lineTo definiše do koje tačke se iscrtava linija, i to se definiše parametrima koje sadrže vrednosti x i y ose. Druga funkcija lineTo povlači liniju iz krajnje tačke prethodne linije, odnosno povlači liniju iz  tačke koja je definisana vrednostima x i y ose u prethodnoj funkciji.
+  </p>
+ <pre>
+  <code data-language="javascript">
+   canvas = document.getElementById("tutorijal");
+   cnt = canvas.getContext("2d");
+   cnt.moveTo(50,50);
+   cnt.lineTo(400,400);
+   cnt.lineTo(50,400);
+   cnt.lineTo(50,50);
+   cnt.lineWidth = 5;
+   cnt.strokeStyle = "red";
+   cnt.stroke();
+  </code>
+ </pre>
+  <div class="live">
+   <img src="img/triangle.png" alt="" />
+   <p>Renderovani prikaz koda</p>
+  </div>
+ <br />
+ <p>
+  Jednostavan primer korišćenja funkcije <strong>lineTo()</strong>.
+ </p>
+ <pre>
+  <code data-language="javascript">
+   &lt;canvas id="myCanvas" width="578" height="200"&gt;&lt;/canvas&gt;
+   &lt;script&gt;
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+
+    context.beginPath();
+    context.moveTo(100, 150);
+    context.lineTo(450, 50);
+    context.stroke();
+  &lt;/script&gt;
+  </code>
+ </pre>
+ <div class="live">
+   <canvas id="myCanvas" width="578" height="200">&lt;/canvas>
+   <script>
+    var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+
+    context.beginPath();
+    context.moveTo(100, 150);
+    context.lineTo(450, 50);
+    context.stroke();
+  </script>
+ </div>
+ </div>
+ <div id="sidebar">
+  <p id="clock-caption">Vreme</p>
+  <p id="clock">&nbsp;</p>
+  <p>Korisni linkovi</p>
+  <ul id="side-menu">
+   <li><a href="http://ftn.kg.ac.rs/" target="_blank">&#9654; Fakultet tehničkih nauka</a></li>
+   <li><a href="http://itlab.ftn.kg.ac.rs/moodle/" target="_blank">&#9654; Moodle</a></li>
+   <li><a href="http://www.effectgames.com/demos/canvascycle/" target="_blank">&#9654; Waterfall</a></li>
+   <li><a href="https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio/launch" target="_blank">&#9654; Ghostwriter</a></li>
+   <li><a href="http://www.html5canvastutorials.com" target="_blank">&#9654; Canvas Tutorials</a></li>
+   <li><a href="http://www.w3schools.com/html/html5_canvas.asp" target="_blank">&#9654; W3Schools</a></li>
+   <li><a href="http://diveintohtml5.info/canvas.html" target="_blank">&#9654; Canvas Tutorial</a></li>
+  </ul>
+ </div>
+ </div>
+ <div id="footer">
+  <p>Čačak, 2015</p>
+ </div>
+</body>
+</html>

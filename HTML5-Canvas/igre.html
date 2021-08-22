@@ -1,0 +1,53 @@
+﻿<!doctype html>
+<html lang="sr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HTML5 Canvas &ndash; Igre</title>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/game.css" rel="stylesheet" type="text/css" />
+<script src="js/main.js"></script>
+<script src="js/game.js"></script>
+</head>
+<body>
+<div id="logo" onclick="goHome();">
+ <img src="img/bucket-left.png" alt="" /><span id="title">HTML5 Canvas</span><img src="img/bucket-right.png" alt="" />
+</div>
+<br />
+<ul id="nav">
+ <li><a href="index.html?id=0">Uvod</a></li>
+ <li><a href="funkcije.html?id=1">Funkcije</a>
+ <li><a href="linije.html?id=2">Linije</a></li>
+ <li><a href="slike.html?id=3">Slike</a></li>
+ <li><a href="rotacija.html?id=4">Rotacija</a>
+ <li><a href="stilovi.html?id=5">Stilovi</a></li>
+ <li><a href="primeri.html?id=6">Primeri</a></li>
+ <li class="current"><a href="igre.html?id=7">Igre</a></li>
+ <li><a href="autori.html?id=8">Autori</a></li>
+ </ul>
+ <br />
+<div id="wrapper">
+<h2>Primer FPS igre</h2>
+<p>
+SPACE - skok<br />
+strelice - kretanje</p>
+<div id="app">
+<canvas id="underMap" width="106" height="102"></canvas>
+<canvas id="map" width="106" height="102"></canvas>
+<div id="holder" style="clear:both;">
+<div id="sky"></div>
+<div id="floor"></div>
+<canvas id="canvas" width="400" height="300"></canvas>
+<div id="overlay"></div>
+</div>
+<br />
+</div>
+<br />
+<span id="game-author">Igra preuzeta sa: <a href="http://www.benjoffe.com/">ovog sajta</a>.</span>
+<br />
+</div>
+ <div id="footer">
+  <p>Čačak, 2015</p>
+ </div>
+</body>
+</html>

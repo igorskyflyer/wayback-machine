@@ -1,0 +1,99 @@
+code {
+    background-color: #FFF;
+    margin: auto;
+    padding: 5px;
+    color: #777;
+    font-size: 100%;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: QuickSand, Calibri;
+    display: block;
+    max-width: 99%;
+    word-wrap: break-word;
+}
+
+code .comment {
+    color: #888;
+}
+
+code .support {
+    color: #cd57d5;
+}
+
+code .constant.numeric, code .php.embedded {
+    color: #fa0002;
+    font-weight: bold;
+}
+
+code .keyword, code .constant.language {
+    color: #000789;
+    font-weight: bold;
+}
+
+code .selector, code .support.property, code .entity.name.function {
+    color: #777;
+}
+
+code .storage.function, code .variable.self, code .support.function, code .constant.language {
+    color: #777;
+    font-weight: bold;
+}
+
+code .string {
+    color: #0d43fa;
+    font-weight: normal;
+}
+
+code .css-property + span, code .keyword.unit, code .support.css-value {
+    color: #0d43fa !important;
+    font-weight: normal !important;
+}
+
+code .entity.tag.style + .string, code .php.embedded .constant.language, code .php.embedded .keyword {
+    color: #37a348 !important;
+}
+
+code .support.method {
+    color: #2bd5bb;
+}
+
+code .entity.name {
+    color: #fd74e0;
+}
+
+code .support.css-property, code .support.tag-name, code .support.tag, code .support.attribute, code .support.attribute + .operator {
+    color: #000789;
+}
+
+code .storage.module, code .storage.class {
+    color: #122573;
+    font-weight: bold;
+}
+
+code .css.embedded .support.tag, code .css.embedded .style.tag {
+    color: #cd57d5;
+}
+
+code .keyword.operator {
+    color: #2852eb;
+    font-weight: normal;
+}
+
+code .php.embedded .variable, code .php.embedded .storage.function {
+     color: #0d43fa;
+     font-weight: normal;
+}
+
+code .php.embedded .string, code .js.embedded .tag.script {
+     color: #c4001e;
+}
+
+code .php.embedded .comment {
+     color: #f4b441;
+     font-weight: normal;
+}
+
+code .php.embedded .function.name {
+     color: #0099FF;
+     font-weight: normal;
+}

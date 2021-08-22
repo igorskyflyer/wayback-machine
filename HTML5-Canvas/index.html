@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html lang="sr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HTML5 Canvas</title>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/highlight.css" rel="stylesheet" type="text/css" />
+<script src="js/main.js"></script>
+<script src="js/highlight.js"></script>
+<script src="js/jquery.js"></script>
+<script>
+ $(setupPage);
+</script>
+</head>
+<body>
+<div id="logo" onclick="goHome();">
+ <img src="img/bucket-left.png" alt="" /><span id="title">HTML5 Canvas</span><img src="img/bucket-right.png" alt="" />
+</div>
+<br />
+<ul id="nav">
+ <li class="current"><a href="index.html?id=0">Uvod</a></li>
+ <li><a href="funkcije.html?id=1">Funkcije</a>
+ <li><a href="linije.html?id=2">Linije</a></li>
+ <li><a href="slike.html?id=3">Slike</a></li>
+ <li><a href="rotacija.html?id=4">Rotacija</a>
+ <li><a href="stilovi.html?id=5">Stilovi</a></li>
+ <li><a href="primeri.html?id=6">Primeri</a></li>
+ <li><a href="igre.html?id=7">Igre</a></li>
+ <li><a href="autori.html?id=8">Autori</a></li>
+ </ul>
+<div id="wrapper">
+<div id="content">
+ <br />
+ <img src="img/canvas.png" alt="Canvas - HTML5" id="main-image" />
+ <br />
+  <div id="fixed">
+  <img src="img/fb.png" alt="" onclick="shareTo(0);" />
+  <img src="img/twitter.png" alt="" onclick="shareTo(1);" />
+  <img src="img/google.png" alt="" onclick="shareTo(2);" />
+  <img src="img/pintrest.png" alt="" onclick="shareTo(3);" />
+ </div>
+<br />
+  <p>CANVAS (<strong>&lt;canvas&gt;</strong>) je HTML tag koji se pojavio u HTML-u 5. CANVAS se koristiti za crtanje grafike pomoću JavaScript-a. Može se koristiti na primer za crtanje grafova, foto-kompozicija, ili praviti proste animacije.
+  <br />
+  <br />
+  Canvas je prvi put predstavljen u Apple-u  na  Mac OS X-u, a kasnije je implementiran na pretraživaču Safari 1.3. Takodje ovaj tag podržavaju i Firefox 1.5, Internet Explorer 6, i Opera 9.
+  <br />
+  <br />
+  Canvas stvara crteže čiju površinu popunjavamo sa jednim ili više rendiranim kontekstima. Renderovanje se zasniva na OpenGL-u.
+  <br />
+  <br />
+  Na ovom sajtu ćemo objasniti kako ugraditi CANVAS element u HTML stranicu. Takodje ćemo dati i primere koji bi trebalo da opišu neke ideje šta možete učiniti sa CANVAS elementom.
+  <br />
+  <br />
+  Za početak evo jednog jednostavnog primera, čisto da biste shvatili kako funkcioniše CANVAS element.</p>
+ <pre>
+  <code data-language="html">
+  &lt;canvas id=&quot;myCanvas&quot; width=&quot;250&quot; height=&quot;100&quot; style=&quot;border:1px solid #d3d3d3;&quot;&gt;
+   Vaš pretraživač ne podržava HTML5 canvas.
+  &lt;/canvas&gt;
+
+ &lt;script&gt;
+  var c = document.getElementById(&quot;myCanvas&quot;);
+  var ctx = c.getContext(&quot;2d&quot;);
+  ctx.font = &quot;30px Arial&quot;;
+  ctx.fillText(&quot;Pozdrav svima&quot;, 25, 60);
+ &lt;/script&gt;
+  </code>
+  </pre>
+  <div class="live">
+   <canvas id="myCanvas" width="250" height="100" style="border:1px solid #F00;">
+    Vaš pretraživač ne podržava HTML5 canvas.
+   </canvas>
+
+   <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillText("Pozdrav svima", 25, 60);
+   </script>
+   <p>Renderovani prikaz koda</p>
+  </div>
+ </div>
+ <div id="sidebar">
+  <p id="clock-caption">Vreme</p>
+  <p id="clock">&nbsp;</p>
+  <p>Korisni linkovi</p>
+  <ul id="side-menu">
+   <li><a href="http://ftn.kg.ac.rs/" target="_blank">&#9654; Fakultet tehničkih nauka</a></li>
+   <li><a href="http://itlab.ftn.kg.ac.rs/moodle/" target="_blank">&#9654; Moodle</a></li>
+   <li><a href="http://www.effectgames.com/demos/canvascycle/" target="_blank">&#9654; Waterfall</a></li>
+   <li><a href="https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio/launch" target="_blank">&#9654; Ghostwriter</a></li>
+   <li><a href="http://www.html5canvastutorials.com" target="_blank">&#9654; Canvas Tutorials</a></li>
+   <li><a href="http://www.w3schools.com/html/html5_canvas.asp" target="_blank">&#9654; W3Schools</a></li>
+   <li><a href="http://diveintohtml5.info/canvas.html" target="_blank">&#9654; Canvas Tutorial</a></li>
+  </ul>
+ </div>
+ </div>
+ <div id="footer">
+  <p>Čačak, 2015</p>
+ </div>
+</body>
+</html>
