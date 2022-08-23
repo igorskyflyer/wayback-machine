@@ -13,4 +13,5 @@ Projects inside:
 
 - [App Share](https://github.com/igorskyflyer/wayback-machine/tree/main/AppShare), an application that allows you to easily share applications installed on your device.
 - [HTML5 Canvas](https://github.com/igorskyflyer/wayback-machine/tree/main/HTML5-Canvas), a site that demonstrates (early) use of the Canvas API,
-- [Student CLI](https://github.com/igorskyflyer/wayback-machine/tree/main/StudentConsole), a CLI for a college project that allows adding, removing, searching and listing students and their data.
+- [Student CLI](https://github.com/igorskyflyer/wayback-machine/tree/main/StudentConsole), a CLI for a college project that allows adding, removing, searching and listing students and their data,
+- [Exams System](https://github.com/igorskyflyer/wayback-machine/tree/main/ExamsSystem), a [Moodle](https://moodle.org)-like system for students and teachers that allows managing, grading and doing exams.
